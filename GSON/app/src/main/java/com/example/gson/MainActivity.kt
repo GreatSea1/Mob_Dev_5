@@ -2,15 +2,9 @@ package com.example.gson
 
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Context
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -18,7 +12,6 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import okhttp3.*
 import timber.log.Timber
-import java.io.InputStream
 import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
@@ -68,27 +61,26 @@ class MainActivity : AppCompatActivity() {
         clipboardmanager.setPrimaryClip(clipBoard)
         Timber.i(data)
     }
-
-    data class Photo(
-        val id: String,
-        val owner: String,
-        val secret: String,
-        val server: String,
-        val farm: Int,
-        val title: String,
-        val ispublic: Int,
-        val isfriend: Int,
-        val isfamily: Int
-    )
-    data class PhotoPage(
-        val page: Int,
-        val pages: Int,
-        val perpages: Int,
-        val total: Int,
-        val photo: JsonArray
-    )
-    data class Wrapper(
-        val photos: JsonObject,
-        val stat: String
-    )
 }
+data class Photo(
+    val id: String,
+    val owner: String,
+    val secret: String,
+    val server: String,
+    val farm: Int,
+    val title: String,
+    val ispublic: Int,
+    val isfriend: Int,
+    val isfamily: Int
+)
+data class PhotoPage(
+    val page: Int,
+    val pages: Int,
+    val perpages: Int,
+    val total: Int,
+    val photo: JsonArray
+)
+data class Wrapper(
+    val photos: JsonObject,
+    val stat: String
+)
